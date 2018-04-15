@@ -231,9 +231,9 @@ public class Editor {
                try {
                    //FileWriter escritor = new FileWriter(tabla_simbolos);
                    //PrintWriter writer = new PrintWriter(escritor);
-                   String aux=analizador.leerCodigoFuente();
+                   //String aux=analizador.leerCodigoFuente();
                    //writer.write(aux);
-                   System.out.print(aux);
+                   //System.out.print(aux);
                    tabla_simbolos = analizador.leerCodigoFuente2();
                    
                    JOptionPane.showMessageDialog(null, "Análisis Léxico exitoso");

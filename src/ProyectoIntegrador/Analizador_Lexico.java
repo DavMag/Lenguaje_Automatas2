@@ -43,7 +43,7 @@ public class Analizador_Lexico {
 		String linea; //// Variable donde se guardarán las lineas leidas del archivo
 		StringTokenizer token; // Variable que se utilizará para dividir en tokens las lineas
 		int CONT_LINEA = 0; // Variable que contará las lineas del archivo
-		int CONT_TOKEN = 0;// Variable que contará los tokens de las lineas
+		//int CONT_TOKEN = 0;// Variable que contará los tokens de las lineas
 		String escribir = "";
 		try {
 			String aux;// Variable auxiliar donde guardamos el token leido
@@ -51,14 +51,14 @@ public class Analizador_Lexico {
 			BufferedReader lee = new BufferedReader(archivos);
 			while ((linea = lee.readLine()) != null) {
 				CONT_LINEA++;
-				CONT_TOKEN = 0;
+				//CONT_TOKEN = 0;
 				/*
 				 * Método verificar que no tengamos comentarios
 				 */
 				if (!eliminarComentarios(linea)) {
 					token = new StringTokenizer(linea);
 					while (token.hasMoreTokens()) {
-						CONT_TOKEN++;
+						//CONT_TOKEN++;
 						aux = token.nextToken();
 						erroresLexicosSimbolos(aux, CONT_LINEA);
 						/*
@@ -66,7 +66,7 @@ public class Analizador_Lexico {
 						 */
 
 						escribir += aux + ", " + analizadorLexico(aux, CONT_LINEA) + ", " + posicionTabla + ", "
-								+ CONT_TOKEN + "\n" + "\n";
+								+ CONT_LINEA + "\n" + "\n";
 
 					}
 				}
@@ -88,7 +88,7 @@ public class Analizador_Lexico {
 		int CONT_LINEA = 0; // Variable que contará las lineas del archivo
 		int CONT_TOKEN = 0;// Variable que contará los tokens de las lineas
 		String escribir = "";
-		File tabla_simbolos = new File("Tabla_Simbolos.txt");
+		File tabla_simbolos = new File("Tabla_Tokens.txt");
 		try {
 			FileWriter w = new FileWriter(tabla_simbolos);
 			PrintWriter writer = new PrintWriter(w);
@@ -112,7 +112,7 @@ public class Analizador_Lexico {
 						 */
 
 						escribir = aux + " " + analizadorLexico(aux, CONT_LINEA) + " " + posicionTabla + " "
-								+ CONT_TOKEN;
+								+ CONT_LINEA;
 						//
 						writer.println(escribir);
 					}
@@ -141,7 +141,7 @@ public class Analizador_Lexico {
 						// lenguaje
 		boolean check = true;// Variable que nos permitirá verificar cuando debemos de cambiar de tabla
 		IDENTIFICADORES = new File(
-				"C:\\Users\\David\\Documents\\NetBeansProjects\\LenguajesYAutomatas\\src\\ProyectoIntegrador\\ide.txt");
+				"C:\\Users\\David\\git\\LenguajesYAutomatas\\src\\ProyectoIntegrador\\ide.txt");
 		FileReader archivos = null;
 		try {
 
@@ -201,7 +201,7 @@ public class Analizador_Lexico {
 		int cont = 0;// Contador que deterinará el identificador de cada elemento de nuestro
 						// lenguaje
 		ERRORES_L = new File(
-				"C:\\Users\\David\\Documents\\NetBeansProjects\\LenguajesYAutomatas\\src\\ProyectoIntegrador\\err.txt");
+				"C:\\Users\\David\\git\\LenguajesYAutomatas\\src\\ProyectoIntegrador\\err.txt");
 		try {
 
 			/*
