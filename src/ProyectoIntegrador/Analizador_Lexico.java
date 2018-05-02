@@ -265,25 +265,25 @@ public class Analizador_Lexico {
 		 * Verificamoss si es una constante String
 		 */
 		if (mConstStr.matches()) {
-			return "-53";
+			return "-54";
 		}
 		/*
 		 * Verificamos si es una constant Char
 		 */
 		else if (mConstChr.matches()) {
-			return "-54";
+			return "-55";
 		}
 		/*
 		 * Verificamos si es una consante entera
 		 */
 		else if (isNumeric(aux)) {
-			return "-51";
+			return "-52";
 		}
 		/*
 		 * Verificamos si es una constante real
 		 */
 		else if (isReal(aux)) {
-			return "-52";
+			return "-53";
 		}
 		/*
 		 * Verificamos si es algún signo: aritmético/lógico/relacional/especial Si no
@@ -321,7 +321,7 @@ public class Analizador_Lexico {
 			if (numero.equals("")) {
 				erroresLexicosIdentificadores(aux, contadorToken);
 				posicionTabla = "-2";
-				return "-23";
+				return "-24";
 			}
 		}
 		return numero;

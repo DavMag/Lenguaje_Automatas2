@@ -238,6 +238,13 @@ public class Editor {
                    
                    JOptionPane.showMessageDialog(null, "Análisis Léxico exitoso");
                   // escritor.close();
+                   Analizador_Sintactico sintactico = new Analizador_Sintactico();
+                   if(sintactico.prog())
+                   {
+                	   JOptionPane.showMessageDialog(null, "Análisis Sintactico exitoso");
+                   }else {
+                	   JOptionPane.showMessageDialog(null, " Error Análisis Sintactico");
+                   }
                } catch (ErroresLexicosSimbolos ex) {
             	   //Logger.getLogger(Editor.class.getName()).log(Level.SEVERE, null, ex);
                    
