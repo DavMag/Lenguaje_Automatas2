@@ -43,6 +43,7 @@ public class Analizador_Sintactico {
 				secuencia.add(st.nextToken());
 
 			}
+			tokens.add("$");
 			System.out.println(tokens.size());
 		} catch (Exception e) {
 
@@ -546,18 +547,31 @@ public class Analizador_Sintactico {
 					break;
 				} else if (tokens.get(inx).equals("end")) {
 					contadorBeginsEnds --;
-					if(!((tokens.size()-1)==inx))
+					inx++;
+					if(tokens.get(inx).equals("$"))
 					{
-						inx++;
+						if(contadorBeginsEnds==0) {
+							estado=3;
+						}else {
+							estado=4;
+						}
+						
 					}else {
 						estado=3;
 					}
-					if(contadorBeginsEnds==0)
-					{
-						estado = 3;
-					}else {
-						estado=4;
-					}
+					
+//					if(!((tokens.size()-1)==inx))
+//					{
+//						inx++;
+//					}else {
+//						estado=3;
+//					}
+//					if(contadorBeginsEnds==0)
+//					{
+//						estado = 3;
+//					}else {
+//						estado=4;
+//					}
 					
 					break;
 				} else {
