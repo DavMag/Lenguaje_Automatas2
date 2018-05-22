@@ -199,6 +199,9 @@ public class Editor {
     	   Lectura_VCI vci  = new Lectura_VCI(notas.getText());
     	   vci.creacionVCI(); 
     	   JOptionPane.showMessageDialog(null,vci.imprimirVCI(),"Vector Código Intermedio", JOptionPane.INFORMATION_MESSAGE);
+    	   Ejecucion_VCI exVCI = new Ejecucion_VCI(vci.getVci());
+    	   JOptionPane.showMessageDialog(null,exVCI.getResultado(),"Resultado", JOptionPane.INFORMATION_MESSAGE);
+    	   
     	  }else {
     		  JOptionPane.showMessageDialog(null,"No ha escrito ninguna linea de instrucción\n"
     				  + "  Escriba una linea para continuar","Alertar", JOptionPane.WARNING_MESSAGE);  

@@ -8,7 +8,7 @@ public class Lectura_VCI {
 
 	ArrayList<String> tokens = new ArrayList<>(); // ArrayList que contendrá los elementos leidos
 
-	ArrayList<String> vci = new ArrayList<>(); // ArrayList que contendrá el vector de código intermedio
+	private ArrayList<String> vci = new ArrayList<>(); // ArrayList que contendrá el vector de código intermedio
 
 	Stack<String> operadores = new Stack<String>(); // Pila de operadores
 
@@ -27,6 +27,10 @@ public class Lectura_VCI {
 
 	}
 
+	public ArrayList getVci()
+	{
+		return vci;
+	}
 	// Determinamos la prioridad
 	private int prioridad(String token) {
 		int prioridad = 0;
@@ -97,17 +101,27 @@ public class Lectura_VCI {
 			}
 
 			else {
+				boolean check=true;
 				int aux;
 
 				// Verifica que la pila no esté vacía
 				if (!(operadores.isEmpty())) {
 					aux = prioridad(String.valueOf(operadores.peek()));
-					if (prioridad > aux) {
-						operadores.push(tokens.get(i));
-					} else {
-						vci.add(operadores.pop());
-						operadores.push(tokens.get(i));
+					while(true)
+					{
+						if (!(prioridad > aux)) {
+							vci.add(operadores.pop());
+							
+							
+						}else {
+							break;
+						}
+						aux = prioridad(String.valueOf(operadores.peek()));
 					}
+					operadores.push(tokens.get(i));
+					
+					
+					
 					// Si está vacía simplemente insertamos los valores en la pila
 				} else if (i == tokens.size() - 1) {
 					vci.add(operadores.pop());
@@ -119,6 +133,17 @@ public class Lectura_VCI {
 
 		}
 	}
+	
+	/*
+	 * if (prioridad > aux) {
+						operadores.push(tokens.get(i));
+					} else {
+						vci.add(operadores.pop());
+						operadores.push(tokens.get(i));
+					}
+	 */
+	
+	
 
 	protected String imprimirVCI() {
 		String linea = "";
